@@ -341,12 +341,12 @@ function Index() {
       >
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
           <Reveal direction="right">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl shadow-xl md:max-w-none">
               <img
                 src={technicianImg}
-                alt="Blue Ribbon pest control technician treating a home exterior"
+                alt="Pest control sprayer treating shrubs along a home exterior"
                 loading="lazy"
-                className="h-[420px] w-full object-cover sm:h-[520px]"
+                className="h-56 w-full object-cover sm:h-72 md:h-96"
               />
             </div>
           </Reveal>
