@@ -125,9 +125,9 @@ function Index() {
           />
         </div>
 
-        <div className="relative mx-auto max-w-5xl px-5 py-24 text-center sm:py-32 md:py-40">
+        <div className="relative mx-auto max-w-5xl px-5 py-20 text-center sm:py-32 md:py-40">
           <div
-            className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-white/90 backdrop-blur-sm sm:text-sm"
+            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-white/90 backdrop-blur-sm sm:mb-6 sm:px-4 sm:text-sm"
             style={{ borderColor: BORDER, backgroundColor: "rgba(74,123,255,0.12)" }}
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ backgroundColor: BLUE_BRIGHT }} />
@@ -135,15 +135,15 @@ function Index() {
           </div>
           <div className="relative">
             <div
-              className="pointer-events-none absolute -left-16 -top-10 h-56 w-56 rounded-full opacity-40 blur-3xl sm:h-72 sm:w-72"
+              className="pointer-events-none absolute -left-10 -top-6 h-40 w-40 rounded-full opacity-40 blur-3xl sm:-left-16 sm:-top-10 sm:h-72 sm:w-72"
               style={{ backgroundColor: BLUE }}
             />
             <div
-              className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-56 rounded-full opacity-30 blur-3xl sm:h-72 sm:w-72"
+              className="pointer-events-none absolute -bottom-8 -right-6 h-40 w-40 rounded-full opacity-30 blur-3xl sm:-bottom-12 sm:-right-10 sm:h-72 sm:w-72"
               style={{ backgroundColor: BLUE_BRIGHT }}
             />
             <h1
-              className="relative bg-clip-text text-4xl font-bold leading-[1.05] tracking-tight text-transparent [-webkit-text-fill-color:transparent] [filter:drop-shadow(0_4px_6px_rgba(0,0,0,0.55))_drop-shadow(0_2px_20px_rgba(74,123,255,0.35))] sm:text-6xl md:text-7xl"
+              className="relative bg-clip-text text-[2.25rem] font-bold leading-[1.05] tracking-tight text-transparent [-webkit-text-fill-color:transparent] [filter:drop-shadow(0_4px_6px_rgba(0,0,0,0.55))_drop-shadow(0_2px_20px_rgba(74,123,255,0.35))] sm:text-6xl md:text-7xl"
               style={{
                 backgroundImage: `linear-gradient(180deg, #ffffff 0%, #e8efff 45%, ${BLUE_BRIGHT} 100%)`,
               }}
@@ -160,14 +160,14 @@ function Index() {
               Experts.
             </h1>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/85 sm:mt-6 sm:text-lg md:text-xl">
             Fast, courteous, and dedicated to keeping your home pest-free. Proudly protecting families across the Adirondack region.
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
             <a
               href="#contact"
               onClick={scrollToContact}
-              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-white shadow-2xl transition-all hover:scale-[1.03]"
+              className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-semibold text-white shadow-2xl transition-all hover:scale-[1.03] sm:px-8 sm:py-4 sm:text-base"
               style={{
                 background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
                 boxShadow: `0 12px 40px -10px ${BLUE}`,
@@ -177,13 +177,13 @@ function Index() {
             </a>
             <a
               href="tel:+13153572847"
-              className="inline-flex items-center gap-2 rounded-md border px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 rounded-md border px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 sm:px-8 sm:py-4 sm:text-base"
               style={{ borderColor: "rgba(255,255,255,0.25)" }}
             >
               <Phone className="h-4 w-4" /> (315) 357-2847
             </a>
           </div>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-2 sm:mt-12 sm:gap-3">
             {[
               { label: "5.0 Star Rating", icon: Star },
               { label: "Same-Day Service", icon: Clock },
@@ -191,15 +191,16 @@ function Index() {
             ].map(({ label, icon: Icon }) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm"
+                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-medium text-white/90 backdrop-blur-sm sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
                 style={{ borderColor: BORDER, backgroundColor: "rgba(255,255,255,0.05)" }}
               >
-                <Icon className="h-3.5 w-3.5" style={{ color: BLUE_BRIGHT }} fill={Icon === Star ? BLUE_BRIGHT : "none"} />
+                <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5" style={{ color: BLUE_BRIGHT }} fill={Icon === Star ? BLUE_BRIGHT : "none"} />
                 {label}
               </span>
             ))}
           </div>
         </div>
+
       </section>
 
       {/* Services */}
