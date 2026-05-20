@@ -80,7 +80,7 @@ function Index() {
         className="sticky top-0 z-50 border-b backdrop-blur-md"
         style={{ backgroundColor: "rgba(10,23,48,0.85)", borderColor: BORDER }}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-5">
           <a href="#" className="flex items-center gap-2 sm:gap-3">
             <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-9 w-auto sm:h-12" />
             <span className="text-sm font-bold tracking-tight sm:text-base">
