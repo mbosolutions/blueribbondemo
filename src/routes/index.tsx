@@ -125,7 +125,7 @@ function Index() {
           />
         </div>
 
-        <div className="relative mx-auto max-w-5xl px-5 py-20 text-center sm:py-32 md:py-40">
+        <div className="relative mx-auto max-w-5xl px-6 py-20 text-center sm:px-5 sm:py-32 md:py-40">
           <div
             className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-white/90 backdrop-blur-sm sm:mb-6 sm:px-4 sm:text-sm"
             style={{ borderColor: BORDER, backgroundColor: "rgba(74,123,255,0.12)" }}
@@ -209,7 +209,7 @@ function Index() {
           className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full opacity-20 blur-3xl"
           style={{ backgroundColor: BLUE }}
         />
-        <div className="relative mx-auto max-w-6xl px-5 py-16 sm:py-24">
+        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
           <div className="text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
               What We Do
@@ -252,7 +252,7 @@ function Index() {
 
       {/* About */}
       <section className="relative border-t" style={{ borderColor: BORDER }}>
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:gap-14 sm:py-24 md:grid-cols-2 md:items-center">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
               About Us
@@ -301,7 +301,7 @@ function Index() {
 
       {/* Testimonials */}
       <section className="relative border-t" style={{ borderColor: BORDER }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
           <div className="text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
               Testimonials
@@ -344,7 +344,7 @@ function Index() {
             style={{ backgroundColor: BLUE }}
           />
         </div>
-        <div className="relative mx-auto max-w-2xl px-5 py-16 sm:py-24">
+        <div className="relative mx-auto max-w-2xl px-6 py-16 sm:px-5 sm:py-24">
           <div className="text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
               Get in Touch
@@ -439,7 +439,7 @@ function Index() {
 
       {/* Footer */}
       <footer className="border-t" style={{ borderColor: BORDER, backgroundColor: NAVY }}>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 md:flex-row md:items-start md:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 sm:px-5 md:flex-row md:items-start md:justify-between">
           <div className="flex items-start gap-4">
             <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-14 w-auto" />
             <div className="space-y-1.5 text-sm text-white/75">
