@@ -223,7 +223,7 @@ function Index() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(10,23,48,0.75) 0%, rgba(10,23,48,0.65) 45%, rgba(10,23,48,0.55) 75%, rgba(250,247,241,1) 100%)",
+                "linear-gradient(180deg, rgba(10,23,48,0.82) 0%, rgba(10,23,48,0.75) 35%, rgba(10,23,48,0.6) 60%, rgba(250,247,241,0.45) 85%, rgba(250,247,241,0.85) 94%, rgba(250,247,241,1) 100%)",
             }}
           />
         </div>
