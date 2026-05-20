@@ -67,6 +67,14 @@ const testimonials = [
 function Index() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", pest: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: "Services", id: "services" },
+    { label: "About", id: "about" },
+    { label: "Testimonials", id: "testimonials" },
+    { label: "Contact", id: "contact" },
+  ];
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
