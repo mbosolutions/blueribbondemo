@@ -23,6 +23,7 @@ import {
 import lakeImg from "@/assets/lake.jpg";
 import logoImg from "@/assets/blue-ribbon-logo.png";
 import logoMobileImg from "@/assets/blue-ribbon-logo-mobile.png";
+import { Reveal, useParallax } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -69,6 +70,7 @@ function Index() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", pest: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const parallaxRef = useParallax(0.18) as React.RefObject<HTMLImageElement>;
 
   const navItems = [
     { label: "Services", id: "services" },
@@ -208,7 +210,7 @@ function Index() {
       <section className="relative overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <img src={lakeImg} alt="Adirondack lake at Eagle Bay, NY" className="h-full w-full object-cover" />
+          <img ref={parallaxRef} src={lakeImg} alt="Adirondack lake at Eagle Bay, NY" className="h-[115%] w-full object-cover" />
           <div
             className="absolute inset-0"
             style={{
