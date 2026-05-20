@@ -121,7 +121,7 @@ function Index() {
             aria-label="Blue Ribbon Pest Control"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <img src={logoMobileImg} alt="Blue Ribbon Pest Control" className="h-14 w-auto" />
+            <img src={logoMobileImg} alt="Blue Ribbon Pest Control" className="h-9 w-auto" />
 
           </a>
           <div className="flex items-center gap-1">
