@@ -15,6 +15,10 @@ import {
   Phone,
   Clock,
   ArrowRight,
+  User,
+  MessageSquareMore,
+  Menu,
+  X,
 } from "lucide-react";
 import lakeImg from "@/assets/lake.jpg";
 import logoImg from "@/assets/blue-ribbon-logo.png";
