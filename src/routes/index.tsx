@@ -38,7 +38,7 @@ const BLUE = "#2f5fd6";
 const BLUE_BRIGHT = "#4a7bff";
 const BLUE_HOVER = "#1e4ec0";
 const CREAM = "#faf7f1";
-const CREAM_DEEP = "#f0ead e";
+
 const SAND = "#efe8d8";
 const BORDER_DARK = "rgba(120,160,255,0.18)";
 const BORDER_LIGHT = "rgba(22,36,63,0.10)";
