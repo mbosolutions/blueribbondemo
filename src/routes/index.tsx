@@ -223,7 +223,7 @@ function Index() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(10,23,48,0.55) 0%, rgba(10,23,48,0.35) 40%, rgba(250,247,241,0.10) 80%, rgba(250,247,241,1) 100%)",
+                "linear-gradient(180deg, rgba(10,23,48,0.75) 0%, rgba(10,23,48,0.65) 45%, rgba(10,23,48,0.55) 75%, rgba(250,247,241,1) 100%)",
             }}
           />
         </div>
@@ -291,41 +291,41 @@ function Index() {
         className="relative scroll-mt-20"
         style={{ backgroundColor: CREAM }}
       >
-        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
+        <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-24">
           <Reveal>
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE }}>
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] sm:mb-3 sm:text-xs" style={{ color: BLUE }}>
                 What We Do
               </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl" style={{ color: NAVY }}>
+              <h2 className="text-2xl font-bold tracking-tight sm:text-5xl" style={{ color: NAVY }}>
                 Our Services
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base" style={{ color: "rgba(22,36,63,0.7)" }}>
+              <p className="mx-auto mt-3 max-w-2xl text-sm sm:mt-4 sm:text-base" style={{ color: "rgba(22,36,63,0.7)" }}>
                 From buzzing nests to creeping rodents — we handle it all with care and precision.
               </p>
             </div>
           </Reveal>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5 lg:grid-cols-3">
             {services.map(({ icon: Icon, title, desc }, i) => (
-              <Reveal key={title} delay={i * 80}>
+              <Reveal key={title} delay={i * 60}>
                 <div
-                  className="group relative h-full overflow-hidden rounded-xl border bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-xl"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-xl border bg-white p-4 transition-all hover:-translate-y-1 hover:shadow-xl sm:p-7"
                   style={{
                     borderColor: BORDER_LIGHT,
                     boxShadow: "0 4px 18px -10px rgba(22,36,63,0.18)",
                   }}
                 >
                   <div
-                    className="relative inline-flex h-12 w-12 items-center justify-center rounded-lg"
+                    className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg sm:h-12 sm:w-12"
                     style={{
                       background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
                       boxShadow: `0 8px 20px -8px ${BLUE}`,
                     }}
                   >
-                    <Icon className="h-6 w-6 text-white" strokeWidth={2} />
+                    <Icon className="h-4 w-4 text-white sm:h-6 sm:w-6" strokeWidth={2} />
                   </div>
-                  <h3 className="relative mt-5 text-lg font-semibold" style={{ color: NAVY }}>{title}</h3>
-                  <p className="relative mt-2 text-sm leading-relaxed" style={{ color: "rgba(22,36,63,0.7)" }}>{desc}</p>
+                  <h3 className="relative mt-3 text-sm font-semibold leading-tight sm:mt-5 sm:text-lg" style={{ color: NAVY }}>{title}</h3>
+                  <p className="relative mt-1.5 hidden text-sm leading-relaxed sm:mt-2 sm:block" style={{ color: "rgba(22,36,63,0.7)" }}>{desc}</p>
                 </div>
               </Reveal>
             ))}
