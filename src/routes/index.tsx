@@ -258,7 +258,7 @@ function Index() {
                 boxShadow: `0 12px 40px -10px ${BLUE}`,
               }}
             >
-              Get a Free Quote <ArrowRight className="h-4 w-4" />
+              Get in Touch <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="tel:+13153572847"
