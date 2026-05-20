@@ -350,7 +350,7 @@ function Index() {
       </section>
 
       {/* About */}
-      <section className="relative border-t" style={{ borderColor: BORDER }}>
+      <section id="about" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
