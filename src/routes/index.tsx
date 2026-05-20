@@ -434,7 +434,7 @@ function Index() {
       {/* Contact */}
       <section
         id="contact"
-        className="relative border-t"
+        className="relative border-t scroll-mt-20"
         style={{ borderColor: BORDER }}
       >
         <div className="absolute inset-0 overflow-hidden">
