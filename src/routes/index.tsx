@@ -133,11 +133,11 @@ function Index() {
           </div>
           <div className="relative">
             <div
-              className="pointer-events-none absolute -left-16 -top-10 h-56 w-56 rounded-full opacity-50 blur-3xl sm:h-72 sm:w-72"
+              className="pointer-events-none absolute -left-16 -top-10 h-56 w-56 rounded-full opacity-40 blur-3xl sm:h-72 sm:w-72"
               style={{ backgroundColor: BLUE }}
             />
             <div
-              className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-56 rounded-full opacity-40 blur-3xl sm:h-72 sm:w-72"
+              className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-56 rounded-full opacity-30 blur-3xl sm:h-72 sm:w-72"
               style={{ backgroundColor: BLUE_BRIGHT }}
             />
             <h1
