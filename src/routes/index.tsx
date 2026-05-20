@@ -80,26 +80,28 @@ function Index() {
         className="sticky top-0 z-50 border-b backdrop-blur-md"
         style={{ backgroundColor: "rgba(10,23,48,0.85)", borderColor: BORDER }}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-          <a href="#" className="flex items-center gap-3">
-            <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-10 w-auto sm:h-12" />
-            <span className="hidden text-base font-bold tracking-tight sm:inline">
-              Blue Ribbon Pest Control
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5">
+          <a href="#" className="flex items-center gap-2 sm:gap-3">
+            <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-9 w-auto sm:h-12" />
+            <span className="text-sm font-bold tracking-tight sm:text-base">
+              <span className="sm:hidden">Blue Ribbon</span>
+              <span className="hidden sm:inline">Blue Ribbon Pest Control</span>
             </span>
           </a>
           <a
             href="#contact"
             onClick={scrollToContact}
-            className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.03] sm:px-5"
+            className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-xs font-semibold text-white shadow-lg transition-all hover:scale-[1.03] sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm"
             style={{
               background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
               boxShadow: `0 8px 24px -8px ${BLUE}`,
             }}
           >
-            Get in Touch <ArrowRight className="h-4 w-4" />
+            Get in Touch <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </a>
         </div>
       </header>
+
 
       {/* Hero */}
       <section className="relative overflow-hidden">
