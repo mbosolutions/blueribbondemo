@@ -288,9 +288,17 @@ function Index() {
       {/* Services */}
       <section
         id="services"
-        className="relative scroll-mt-20"
+        className="relative scroll-mt-20 overflow-hidden"
         style={{ backgroundColor: CREAM }}
       >
+        <div
+          className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full opacity-25 blur-3xl sm:h-[28rem] sm:w-[28rem]"
+          style={{ backgroundColor: BLUE_BRIGHT }}
+        />
+        <div
+          className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full opacity-20 blur-3xl sm:h-96 sm:w-96"
+          style={{ backgroundColor: "#f5c97a" }}
+        />
         <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-24">
           <Reveal>
             <div className="text-center">
@@ -339,14 +347,22 @@ function Index() {
         className="relative scroll-mt-20 overflow-hidden"
         style={{ backgroundColor: SAND }}
       >
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
+        <div
+          className="pointer-events-none absolute -right-32 top-12 h-80 w-80 rounded-full opacity-30 blur-3xl sm:h-[26rem] sm:w-[26rem]"
+          style={{ backgroundColor: BLUE_BRIGHT }}
+        />
+        <div
+          className="pointer-events-none absolute -left-24 bottom-10 h-72 w-72 rounded-full opacity-25 blur-3xl sm:h-96 sm:w-96"
+          style={{ backgroundColor: "#a8c4a0" }}
+        />
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
           <Reveal direction="right">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl shadow-xl md:max-w-none">
               <img
                 src={technicianImg}
-                alt="Blue Ribbon pest control technician treating a home exterior"
+                alt="Pest control sprayer treating shrubs along a home exterior"
                 loading="lazy"
-                className="h-[420px] w-full object-cover sm:h-[520px]"
+                className="h-56 w-full object-cover sm:h-72 md:h-96"
               />
             </div>
           </Reveal>
@@ -479,8 +495,8 @@ function Index() {
           <Reveal delay={120}>
             <form
               onSubmit={onSubmit}
-              className="mt-12 space-y-5 rounded-2xl border bg-white p-7 shadow-2xl sm:p-9"
-              style={{ borderColor: BORDER_LIGHT }}
+              className="mt-12 space-y-5 rounded-2xl border p-7 shadow-2xl sm:p-9"
+              style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM }}
             >
               {[
                 { id: "name", label: "Name", type: "text" },
@@ -498,7 +514,7 @@ function Index() {
                     value={(form as any)[f.id]}
                     onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
                     className="w-full rounded-md border px-4 py-3 outline-none transition-colors focus:border-[color:var(--blue)]"
-                    style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY, ["--blue" as any]: BLUE_BRIGHT }}
+                    style={{ borderColor: BORDER_LIGHT, backgroundColor: "#ffffff", color: NAVY, ["--blue" as any]: BLUE_BRIGHT }}
                   />
                 </div>
               ))}
@@ -512,7 +528,7 @@ function Index() {
                   value={form.pest}
                   onChange={(e) => setForm({ ...form, pest: e.target.value })}
                   className="w-full rounded-md border px-4 py-3 outline-none"
-                  style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY }}
+                  style={{ borderColor: BORDER_LIGHT, backgroundColor: "#ffffff", color: NAVY }}
                 >
                   <option value="">Select a pest type</option>
                   {[
@@ -538,7 +554,7 @@ function Index() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full rounded-md border px-4 py-3 outline-none"
-                  style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY }}
+                  style={{ borderColor: BORDER_LIGHT, backgroundColor: "#ffffff", color: NAVY }}
                 />
               </div>
               <button
