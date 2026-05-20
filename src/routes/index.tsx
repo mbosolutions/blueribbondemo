@@ -303,7 +303,7 @@ function Index() {
       </section>
 
       {/* Services */}
-      <section className="relative border-t" style={{ borderColor: BORDER }}>
+      <section id="services" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
         <div
           className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full opacity-20 blur-3xl"
           style={{ backgroundColor: BLUE }}
