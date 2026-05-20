@@ -495,8 +495,8 @@ function Index() {
           <Reveal delay={120}>
             <form
               onSubmit={onSubmit}
-              className="mt-12 space-y-5 rounded-2xl border bg-white p-7 shadow-2xl sm:p-9"
-              style={{ borderColor: BORDER_LIGHT }}
+              className="mt-12 space-y-5 rounded-2xl border p-7 shadow-2xl sm:p-9"
+              style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM }}
             >
               {[
                 { id: "name", label: "Name", type: "text" },
