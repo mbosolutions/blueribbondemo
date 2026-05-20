@@ -12,24 +12,24 @@ import {
   Star,
   Quote,
   CheckCircle2,
+  Phone,
+  Clock,
+  ArrowRight,
 } from "lucide-react";
+import lakeImg from "@/assets/lake.jpg";
+import logoImg from "@/assets/blue-ribbon-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const NAVY = "#0b1a33";
+const NAVY = "#0a1730";
 const NAVY_LIGHT = "#11264a";
 const NAVY_LIGHTER = "#163057";
-const BLUE = "#2f80ed";
-const BLUE_HOVER = "#1f6fdc";
-const BORDER = "rgba(255,255,255,0.12)";
-
-const grainBg = {
-  backgroundColor: NAVY,
-  backgroundImage:
-    "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
-};
+const BLUE = "#4a7bff";
+const BLUE_BRIGHT = "#6b95ff";
+const BLUE_HOVER = "#3a6bef";
+const BORDER = "rgba(120,160,255,0.18)";
 
 function scrollToContact(e: React.MouseEvent) {
   e.preventDefault();
@@ -57,13 +57,7 @@ const testimonials = [
 ];
 
 function Index() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    pest: "",
-    message: "",
-  });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", pest: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = (e: React.FormEvent) => {
@@ -78,62 +72,111 @@ function Index() {
       className="min-h-screen text-white"
       style={{
         backgroundColor: NAVY,
-        fontFamily:
-          '"Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif',
+        fontFamily: '"Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif',
       }}
     >
       {/* Header */}
       <header
-        className="sticky top-0 z-50 border-b"
-        style={{ backgroundColor: NAVY, borderColor: BORDER }}
+        className="sticky top-0 z-50 border-b backdrop-blur-md"
+        style={{ backgroundColor: "rgba(10,23,48,0.85)", borderColor: BORDER }}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-          <a href="#" className="text-base font-bold tracking-tight sm:text-lg">
-            Blue Ribbon Pest Control Inc
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+          <a href="#" className="flex items-center gap-3">
+            <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-10 w-auto sm:h-12" />
+            <span className="hidden text-base font-bold tracking-tight sm:inline">
+              Blue Ribbon Pest Control
+            </span>
           </a>
           <a
             href="#contact"
             onClick={scrollToContact}
-            className="rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors sm:px-5"
-            style={{ backgroundColor: BLUE }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = BLUE_HOVER)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = BLUE)}
+            className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.03] sm:px-5"
+            style={{
+              background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
+              boxShadow: `0 8px 24px -8px ${BLUE}`,
+            }}
           >
-            Get in Touch
+            Get in Touch <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </header>
 
       {/* Hero */}
-      <section style={grainBg}>
-        <div className="mx-auto max-w-4xl px-5 py-20 text-center sm:py-28">
-          <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-            Eagle Bay's Trusted Pest Control Experts.
+      <section className="relative overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img src={lakeImg} alt="Adirondack lake at Eagle Bay, NY" className="h-full w-full object-cover" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(180deg, rgba(10,23,48,0.65) 0%, rgba(10,23,48,0.78) 55%, ${NAVY} 100%)`,
+            }}
+          />
+          {/* Glow accents */}
+          <div
+            className="pointer-events-none absolute -top-32 left-1/4 h-96 w-96 rounded-full opacity-30 blur-3xl"
+            style={{ backgroundColor: BLUE }}
+          />
+          <div
+            className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full opacity-20 blur-3xl"
+            style={{ backgroundColor: BLUE_BRIGHT }}
+          />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-5 py-24 text-center sm:py-32 md:py-40">
+          <div
+            className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-white/90 backdrop-blur-sm sm:text-sm"
+            style={{ borderColor: BORDER, backgroundColor: "rgba(74,123,255,0.12)" }}
+          >
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ backgroundColor: BLUE_BRIGHT }} />
+            Serving the Adirondacks Since Day One
+          </div>
+          <h1 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+            Eagle Bay's Trusted{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: `linear-gradient(135deg, ${BLUE_BRIGHT}, #a8c0ff)` }}
+            >
+              Pest Control
+            </span>{" "}
+            Experts.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-            Fast, courteous, and dedicated to keeping your home pest-free. Serving
-            the Adirondack region with reliable, professional pest control services.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
+            Fast, courteous, and dedicated to keeping your home pest-free. Proudly protecting families across the Adirondack region.
           </p>
-          <div className="mt-8">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="#contact"
               onClick={scrollToContact}
-              className="inline-block rounded-md px-7 py-3.5 text-base font-semibold text-white transition-colors"
-              style={{ backgroundColor: BLUE }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = BLUE_HOVER)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = BLUE)}
+              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-white shadow-2xl transition-all hover:scale-[1.03]"
+              style={{
+                background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
+                boxShadow: `0 12px 40px -10px ${BLUE}`,
+              }}
             >
-              Get in Touch
+              Get a Free Quote <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="tel:+13153572847"
+              className="inline-flex items-center gap-2 rounded-md border px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              style={{ borderColor: "rgba(255,255,255,0.25)" }}
+            >
+              <Phone className="h-4 w-4" /> (315) 357-2847
             </a>
           </div>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            {["5.0 Star Rating", "Same-Day Service", "Locally Owned"].map((s) => (
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+            {[
+              { label: "5.0 Star Rating", icon: Star },
+              { label: "Same-Day Service", icon: Clock },
+              { label: "Locally Owned", icon: MapPin },
+            ].map(({ label, icon: Icon }) => (
               <span
-                key={s}
-                className="rounded-full border px-4 py-1.5 text-xs font-medium text-white/85 sm:text-sm"
-                style={{ borderColor: BORDER }}
+                key={label}
+                className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm"
+                style={{ borderColor: BORDER, backgroundColor: "rgba(255,255,255,0.05)" }}
               >
-                {s}
+                <Icon className="h-3.5 w-3.5" style={{ color: BLUE_BRIGHT }} fill={Icon === Star ? BLUE_BRIGHT : "none"} />
+                {label}
               </span>
             ))}
           </div>
@@ -141,21 +184,46 @@ function Index() {
       </section>
 
       {/* Services */}
-      <section className="border-t" style={{ borderColor: BORDER }}>
-        <div className="mx-auto max-w-6xl px-5 py-20">
-          <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
-            Our Services
-          </h2>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="relative border-t" style={{ borderColor: BORDER }}>
+        <div
+          className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+          style={{ backgroundColor: BLUE }}
+        />
+        <div className="relative mx-auto max-w-6xl px-5 py-24">
+          <div className="text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              What We Do
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Our Services</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base text-white/70">
+              From buzzing nests to creeping rodents — we handle it all with care and precision.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="rounded-lg border p-6"
-                style={{ backgroundColor: NAVY_LIGHT, borderColor: "rgba(47,128,237,0.35)" }}
+                className="group relative overflow-hidden rounded-xl border p-7 transition-all hover:-translate-y-1"
+                style={{
+                  background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
+                  borderColor: BORDER,
+                }}
               >
-                <Icon className="h-7 w-7 text-white" strokeWidth={1.5} />
-                <h3 className="mt-4 text-lg font-semibold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{desc}</p>
+                <div
+                  className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-30"
+                  style={{ backgroundColor: BLUE }}
+                />
+                <div
+                  className="relative inline-flex h-12 w-12 items-center justify-center rounded-lg"
+                  style={{
+                    background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
+                    boxShadow: `0 8px 20px -8px ${BLUE}`,
+                  }}
+                >
+                  <Icon className="h-6 w-6 text-white" strokeWidth={2} />
+                </div>
+                <h3 className="relative mt-5 text-lg font-semibold">{title}</h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-white/70">{desc}</p>
               </div>
             ))}
           </div>
@@ -163,33 +231,48 @@ function Index() {
       </section>
 
       {/* About */}
-      <section className="border-t" style={{ borderColor: BORDER }}>
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 md:grid-cols-2 md:items-center">
+      <section className="relative border-t" style={{ borderColor: BORDER }}>
+        <div className="mx-auto grid max-w-6xl gap-14 px-5 py-24 md:grid-cols-2 md:items-center">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Why Blue Ribbon?
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-white/80 sm:text-lg">
-              Locally owned and operated in Eagle Bay, NY. We pride ourselves on
-              fast response times, fair prices, and treating every home like our
-              own. Our customers trust us because we show up on time, get the job
-              done right, and never cut corners.
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              About Us
             </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Why Blue Ribbon?</h2>
+            <p className="mt-6 text-base leading-relaxed text-white/80 sm:text-lg">
+              Locally owned and operated in Eagle Bay, NY. We pride ourselves on fast response times, fair prices, and treating every home like our own. Our customers trust us because we show up on time, get the job done right, and never cut corners.
+            </p>
+            <div className="mt-8 flex items-center gap-4">
+              <img src={logoImg} alt="Blue Ribbon Pest Control logo" className="h-20 w-auto" />
+              <div className="text-sm text-white/70">
+                <p className="font-semibold text-white">A name homeowners trust.</p>
+                <p>Built on craftsmanship and care.</p>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col gap-6 md:items-center">
+          <div className="grid gap-5">
             {[
-              { icon: Award, label: "Licensed & Insured" },
-              { icon: MapPin, label: "Locally Owned" },
-              { icon: Leaf, label: "Eco-Friendly Options" },
-            ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-4 md:flex-col md:gap-3 md:text-center">
+              { icon: Award, label: "Licensed & Insured", desc: "Fully certified for your peace of mind." },
+              { icon: MapPin, label: "Locally Owned", desc: "Your neighbors in the Adirondacks." },
+              { icon: Leaf, label: "Eco-Friendly Options", desc: "Safe treatments for kids and pets." },
+            ].map(({ icon: Icon, label, desc }) => (
+              <div
+                key={label}
+                className="flex items-start gap-5 rounded-xl border p-5"
+                style={{ backgroundColor: NAVY_LIGHT, borderColor: BORDER }}
+              >
                 <div
-                  className="flex h-14 w-14 items-center justify-center rounded-full border"
-                  style={{ borderColor: BLUE, backgroundColor: NAVY_LIGHT }}
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg"
+                  style={{
+                    background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
+                    boxShadow: `0 8px 20px -8px ${BLUE}`,
+                  }}
                 >
-                  <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
+                  <Icon className="h-6 w-6 text-white" strokeWidth={2} />
                 </div>
-                <span className="text-base font-semibold">{label}</span>
+                <div>
+                  <p className="font-semibold">{label}</p>
+                  <p className="mt-1 text-sm text-white/70">{desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -197,30 +280,32 @@ function Index() {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t" style={{ borderColor: BORDER }}>
-        <div className="mx-auto max-w-6xl px-5 py-20">
-          <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
-            What Our Customers Say
-          </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <section className="relative border-t" style={{ borderColor: BORDER }}>
+        <div className="mx-auto max-w-6xl px-5 py-24">
+          <div className="text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              Testimonials
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">What Our Customers Say</h2>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
             {testimonials.map((t) => (
               <div
                 key={t.name}
-                className="rounded-lg border p-8"
-                style={{ backgroundColor: NAVY_LIGHT, borderColor: BORDER }}
+                className="relative overflow-hidden rounded-xl border p-8"
+                style={{
+                  background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
+                  borderColor: BORDER,
+                }}
               >
-                <Quote className="h-8 w-8 text-white" strokeWidth={1.5} />
+                <Quote className="h-10 w-10" style={{ color: BLUE_BRIGHT }} strokeWidth={1.5} />
                 <div className="mt-4 flex gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-5 w-5" fill={BLUE} stroke={BLUE} />
+                    <Star key={i} className="h-5 w-5" fill={BLUE_BRIGHT} stroke={BLUE_BRIGHT} />
                   ))}
                 </div>
-                <p className="mt-4 text-base leading-relaxed text-white/85">
-                  "{t.text}"
-                </p>
-                <p className="mt-6 text-sm font-semibold text-white/70">
-                  — {t.name}
-                </p>
+                <p className="mt-5 text-base leading-relaxed text-white/90 sm:text-lg">"{t.text}"</p>
+                <p className="mt-6 text-sm font-semibold" style={{ color: BLUE_BRIGHT }}>— {t.name}</p>
               </div>
             ))}
           </div>
@@ -230,17 +315,30 @@ function Index() {
       {/* Contact */}
       <section
         id="contact"
-        className="border-t"
-        style={{ backgroundColor: NAVY_LIGHT, borderColor: BORDER }}
+        className="relative border-t"
+        style={{ borderColor: BORDER }}
       >
-        <div className="mx-auto max-w-2xl px-5 py-20">
-          <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
-            Let's Get You Taken Care Of.
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-center text-base text-white/75">
-            Tell us about your pest problem and we will get back to you fast.
-          </p>
-          <form onSubmit={onSubmit} className="mt-10 space-y-5">
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="pointer-events-none absolute left-1/2 top-20 h-96 w-96 -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+            style={{ backgroundColor: BLUE }}
+          />
+        </div>
+        <div className="relative mx-auto max-w-2xl px-5 py-24">
+          <div className="text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              Get in Touch
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Let's Get You Taken Care Of.</h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-white/75">
+              Tell us about your pest problem and we'll get back to you fast.
+            </p>
+          </div>
+          <form
+            onSubmit={onSubmit}
+            className="mt-12 space-y-5 rounded-2xl border p-7 backdrop-blur-sm sm:p-9"
+            style={{ borderColor: BORDER, backgroundColor: "rgba(17,38,74,0.6)" }}
+          >
             {[
               { id: "name", label: "Name", type: "text" },
               { id: "phone", label: "Phone Number", type: "tel" },
@@ -256,12 +354,8 @@ function Index() {
                   required
                   value={(form as any)[f.id]}
                   onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
-                  className="w-full rounded-md border bg-transparent px-4 py-3 text-white outline-none transition-colors placeholder:text-white/40 focus:border-[color:var(--blue)]"
-                  style={{
-                    borderColor: BORDER,
-                    backgroundColor: NAVY_LIGHTER,
-                    ["--blue" as any]: BLUE,
-                  }}
+                  className="w-full rounded-md border px-4 py-3 text-white outline-none transition-colors placeholder:text-white/40 focus:border-[color:var(--blue)]"
+                  style={{ borderColor: BORDER, backgroundColor: NAVY_LIGHTER, ["--blue" as any]: BLUE_BRIGHT }}
                 />
               </div>
             ))}
@@ -274,7 +368,7 @@ function Index() {
                 required
                 value={form.pest}
                 onChange={(e) => setForm({ ...form, pest: e.target.value })}
-                className="w-full rounded-md border bg-transparent px-4 py-3 text-white outline-none"
+                className="w-full rounded-md border px-4 py-3 text-white outline-none"
                 style={{ borderColor: BORDER, backgroundColor: NAVY_LIGHTER }}
               >
                 <option value="" style={{ color: "#000" }}>Select a pest type</option>
@@ -286,9 +380,7 @@ function Index() {
                   ["spiders", "Spiders"],
                   ["other", "Other"],
                 ].map(([v, l]) => (
-                  <option key={v} value={v} style={{ color: "#000" }}>
-                    {l}
-                  </option>
+                  <option key={v} value={v} style={{ color: "#000" }}>{l}</option>
                 ))}
               </select>
             </div>
@@ -302,21 +394,22 @@ function Index() {
                 required
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full rounded-md border bg-transparent px-4 py-3 text-white outline-none placeholder:text-white/40"
+                className="w-full rounded-md border px-4 py-3 text-white outline-none placeholder:text-white/40"
                 style={{ borderColor: BORDER, backgroundColor: NAVY_LIGHTER }}
               />
             </div>
             <button
               type="submit"
-              className="w-full rounded-md px-6 py-3.5 text-base font-semibold text-white transition-colors"
-              style={{ backgroundColor: BLUE }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = BLUE_HOVER)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = BLUE)}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-4 text-base font-semibold text-white shadow-xl transition-all hover:scale-[1.01]"
+              style={{
+                background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
+                boxShadow: `0 12px 30px -10px ${BLUE}`,
+              }}
             >
-              Send My Request
+              Send My Request <ArrowRight className="h-4 w-4" />
             </button>
             {submitted && (
-              <p className="text-center text-sm text-white/80">
+              <p className="text-center text-sm" style={{ color: BLUE_BRIGHT }}>
                 Thanks — we'll be in touch shortly.
               </p>
             )}
@@ -326,15 +419,16 @@ function Index() {
 
       {/* Footer */}
       <footer className="border-t" style={{ borderColor: BORDER, backgroundColor: NAVY }}>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-10 md:flex-row md:items-start md:justify-between">
-          <div className="space-y-1.5 text-sm text-white/75">
-            <p className="text-base font-bold text-white">Blue Ribbon Pest Control Inc</p>
-            <p>123 Forest Ln, Eagle Bay, NY 13331</p>
-            <p>(315) 357-2847</p>
-            <p>Open daily until 6 PM</p>
-            <p className="pt-3 text-xs text-white/50">
-              © 2026 Blue Ribbon Pest Control Inc
-            </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 md:flex-row md:items-start md:justify-between">
+          <div className="flex items-start gap-4">
+            <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-14 w-auto" />
+            <div className="space-y-1.5 text-sm text-white/75">
+              <p className="text-base font-bold text-white">Blue Ribbon Pest Control Inc</p>
+              <p>123 Forest Ln, Eagle Bay, NY 13331</p>
+              <p>(315) 357-2847</p>
+              <p>Open daily until 6 PM</p>
+              <p className="pt-3 text-xs text-white/50">© 2026 Blue Ribbon Pest Control Inc</p>
+            </div>
           </div>
           <div className="text-sm text-white/70 md:text-right">
             Proudly serving the Adirondack region.
