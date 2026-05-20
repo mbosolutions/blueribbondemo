@@ -131,11 +131,18 @@ function Index() {
             <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ backgroundColor: BLUE_BRIGHT }} />
             Serving the Adirondacks Since Day One
           </div>
-          <h1 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+          <h1
+            className="bg-clip-text text-4xl font-bold leading-[1.05] tracking-tight text-transparent drop-shadow-[0_2px_20px_rgba(74,123,255,0.35)] sm:text-6xl md:text-7xl"
+            style={{
+              backgroundImage: `linear-gradient(180deg, #ffffff 0%, #e8efff 45%, ${BLUE_BRIGHT} 100%)`,
+            }}
+          >
             Eagle Bay's Trusted{" "}
             <span
               className="bg-clip-text text-transparent"
-              style={{ backgroundImage: `linear-gradient(135deg, ${BLUE_BRIGHT}, #a8c0ff)` }}
+              style={{
+                backgroundImage: `linear-gradient(135deg, ${BLUE_BRIGHT} 0%, #a8c0ff 50%, #ffffff 100%)`,
+              }}
             >
               Pest Control
             </span>{" "}
