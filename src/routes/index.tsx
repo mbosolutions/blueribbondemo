@@ -15,6 +15,10 @@ import {
   Phone,
   Clock,
   ArrowRight,
+  User,
+  MessageSquareMore,
+  Menu,
+  X,
 } from "lucide-react";
 import lakeImg from "@/assets/lake.jpg";
 import logoImg from "@/assets/blue-ribbon-logo.png";
@@ -31,9 +35,13 @@ const BLUE_BRIGHT = "#6b95ff";
 const BLUE_HOVER = "#3a6bef";
 const BORDER = "rgba(120,160,255,0.18)";
 
+function scrollToId(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 function scrollToContact(e: React.MouseEvent) {
   e.preventDefault();
-  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  scrollToId("contact");
 }
 
 const services = [
@@ -59,6 +67,14 @@ const testimonials = [
 function Index() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", pest: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: "Services", id: "services" },
+    { label: "About", id: "about" },
+    { label: "Testimonials", id: "testimonials" },
+    { label: "Contact", id: "contact" },
+  ];
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,27 +96,110 @@ function Index() {
         className="sticky top-0 z-50 border-b backdrop-blur-md"
         style={{ backgroundColor: "rgba(10,23,48,0.85)", borderColor: BORDER }}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-5">
-          <a href="#" className="flex items-center gap-2 sm:gap-3">
-            <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-9 w-auto sm:h-12" />
-            <span className="text-sm font-bold tracking-tight sm:text-base">
-              <span className="sm:hidden">Blue Ribbon</span>
-              <span className="hidden sm:inline">Blue Ribbon Pest Control</span>
-            </span>
-          </a>
+        {/* Mobile header */}
+        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:hidden">
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              aria-label="Contact form"
+              onClick={() => scrollToId("contact")}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/10"
+            >
+              <User className="h-6 w-6" strokeWidth={1.75} />
+            </button>
+            <a
+              href="tel:+13153572847"
+              aria-label="Call us"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/10"
+            >
+              <Phone className="h-6 w-6" strokeWidth={1.75} />
+            </a>
+          </div>
           <a
-            href="#contact"
-            onClick={scrollToContact}
-            className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-xs font-semibold text-white shadow-lg transition-all hover:scale-[1.03] sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm"
-            style={{
-              background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
-              boxShadow: `0 8px 24px -8px ${BLUE}`,
-            }}
+            href="#"
+            aria-label="Blue Ribbon Pest Control"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            Get in Touch <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-12 w-auto" />
           </a>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              aria-label="Message us"
+              onClick={() => scrollToId("contact")}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/10"
+            >
+              <MessageSquareMore className="h-6 w-6" strokeWidth={1.75} />
+            </button>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/10"
+            >
+              {menuOpen ? <X className="h-6 w-6" strokeWidth={1.75} /> : <Menu className="h-6 w-6" strokeWidth={1.75} />}
+            </button>
+          </div>
         </div>
+
+        {/* Desktop header */}
+        <div className="mx-auto hidden max-w-6xl items-center justify-between px-5 py-3 md:flex">
+          <a href="#" className="flex items-center gap-3">
+            <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-12 w-auto" />
+            <span className="text-base font-bold tracking-tight">Blue Ribbon Pest Control</span>
+          </a>
+          <nav className="flex items-center gap-1">
+            {navItems.map((n) => (
+              <button
+                key={n.id}
+                type="button"
+                onClick={() => scrollToId(n.id)}
+                className="rounded-md px-3 py-2 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                {n.label}
+              </button>
+            ))}
+            <a
+              href="#contact"
+              onClick={scrollToContact}
+              className="ml-2 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.03]"
+              style={{
+                background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
+                boxShadow: `0 8px 24px -8px ${BLUE}`,
+              }}
+            >
+              Get in Touch <ArrowRight className="h-4 w-4" />
+            </a>
+          </nav>
+        </div>
+
+        {/* Mobile menu drawer */}
+        {menuOpen && (
+          <div
+            className="border-t md:hidden"
+            style={{ borderColor: BORDER, backgroundColor: "rgba(10,23,48,0.98)" }}
+          >
+            <nav className="mx-auto flex max-w-6xl flex-col px-4 py-2">
+              {navItems.map((n) => (
+                <button
+                  key={n.id}
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setTimeout(() => scrollToId(n.id), 50);
+                  }}
+                  className="flex items-center justify-between rounded-md px-3 py-4 text-base font-medium text-white/90 transition-colors hover:bg-white/10"
+                >
+                  {n.label}
+                  <ArrowRight className="h-4 w-4 opacity-60" />
+                </button>
+              ))}
+            </nav>
+          </div>
+        )}
       </header>
+
 
 
       {/* Hero */}
@@ -204,7 +303,7 @@ function Index() {
       </section>
 
       {/* Services */}
-      <section className="relative border-t" style={{ borderColor: BORDER }}>
+      <section id="services" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
         <div
           className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full opacity-20 blur-3xl"
           style={{ backgroundColor: BLUE }}
@@ -251,7 +350,7 @@ function Index() {
       </section>
 
       {/* About */}
-      <section className="relative border-t" style={{ borderColor: BORDER }}>
+      <section id="about" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
@@ -300,7 +399,7 @@ function Index() {
       </section>
 
       {/* Testimonials */}
-      <section className="relative border-t" style={{ borderColor: BORDER }}>
+      <section id="testimonials" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
         <div className="mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
           <div className="text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
@@ -335,7 +434,7 @@ function Index() {
       {/* Contact */}
       <section
         id="contact"
-        className="relative border-t"
+        className="relative border-t scroll-mt-20"
         style={{ borderColor: BORDER }}
       >
         <div className="absolute inset-0 overflow-hidden">
