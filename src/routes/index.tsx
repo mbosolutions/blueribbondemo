@@ -549,6 +549,7 @@ function Index() {
               </p>
             )}
           </form>
+          </Reveal>
         </div>
       </section>
 
