@@ -313,41 +313,44 @@ function Index() {
           style={{ backgroundColor: BLUE }}
         />
         <div className="relative mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
-          <div className="text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
-              What We Do
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Our Services</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/70">
-              From buzzing nests to creeping rodents — we handle it all with care and precision.
-            </p>
-          </div>
+          <Reveal>
+            <div className="text-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+                What We Do
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Our Services</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base text-white/70">
+                From buzzing nests to creeping rodents — we handle it all with care and precision.
+              </p>
+            </div>
+          </Reveal>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="group relative overflow-hidden rounded-xl border p-7 transition-all hover:-translate-y-1"
-                style={{
-                  background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
-                  borderColor: BORDER,
-                }}
-              >
+            {services.map(({ icon: Icon, title, desc }, i) => (
+              <Reveal key={title} delay={i * 80}>
                 <div
-                  className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-30"
-                  style={{ backgroundColor: BLUE }}
-                />
-                <div
-                  className="relative inline-flex h-12 w-12 items-center justify-center rounded-lg"
+                  className="group relative h-full overflow-hidden rounded-xl border p-7 transition-all hover:-translate-y-1"
                   style={{
-                    background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
-                    boxShadow: `0 8px 20px -8px ${BLUE}`,
+                    background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
+                    borderColor: BORDER,
                   }}
                 >
-                  <Icon className="h-6 w-6 text-white" strokeWidth={2} />
+                  <div
+                    className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-30"
+                    style={{ backgroundColor: BLUE }}
+                  />
+                  <div
+                    className="relative inline-flex h-12 w-12 items-center justify-center rounded-lg"
+                    style={{
+                      background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
+                      boxShadow: `0 8px 20px -8px ${BLUE}`,
+                    }}
+                  >
+                    <Icon className="h-6 w-6 text-white" strokeWidth={2} />
+                  </div>
+                  <h3 className="relative mt-5 text-lg font-semibold">{title}</h3>
+                  <p className="relative mt-2 text-sm leading-relaxed text-white/70">{desc}</p>
                 </div>
-                <h3 className="relative mt-5 text-lg font-semibold">{title}</h3>
-                <p className="relative mt-2 text-sm leading-relaxed text-white/70">{desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -356,47 +359,50 @@ function Index() {
       {/* About */}
       <section id="about" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
-              About Us
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Why Blue Ribbon?</h2>
-            <p className="mt-6 text-base leading-relaxed text-white/80 sm:text-lg">
-              Locally owned and operated in Eagle Bay, NY. We pride ourselves on fast response times, fair prices, and treating every home like our own. Our customers trust us because we show up on time, get the job done right, and never cut corners.
-            </p>
-            <div className="mt-8 flex items-center gap-4">
-              <img src={logoImg} alt="Blue Ribbon Pest Control logo" className="h-20 w-auto" />
-              <div className="text-sm text-white/70">
-                <p className="font-semibold text-white">A name homeowners trust.</p>
-                <p>Built on craftsmanship and care.</p>
+          <Reveal direction="right">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+                About Us
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Why Blue Ribbon?</h2>
+              <p className="mt-6 text-base leading-relaxed text-white/80 sm:text-lg">
+                Locally owned and operated in Eagle Bay, NY. We pride ourselves on fast response times, fair prices, and treating every home like our own. Our customers trust us because we show up on time, get the job done right, and never cut corners.
+              </p>
+              <div className="mt-8 flex items-center gap-4">
+                <img src={logoImg} alt="Blue Ribbon Pest Control logo" className="h-20 w-auto" />
+                <div className="text-sm text-white/70">
+                  <p className="font-semibold text-white">A name homeowners trust.</p>
+                  <p>Built on craftsmanship and care.</p>
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
           <div className="grid gap-5">
             {[
               { icon: Award, label: "Licensed & Insured", desc: "Fully certified for your peace of mind." },
               { icon: MapPin, label: "Locally Owned", desc: "Your neighbors in the Adirondacks." },
               { icon: Leaf, label: "Eco-Friendly Options", desc: "Safe treatments for kids and pets." },
-            ].map(({ icon: Icon, label, desc }) => (
-              <div
-                key={label}
-                className="flex items-start gap-5 rounded-xl border p-5"
-                style={{ backgroundColor: NAVY_LIGHT, borderColor: BORDER }}
-              >
+            ].map(({ icon: Icon, label, desc }, i) => (
+              <Reveal key={label} direction="left" delay={i * 100}>
                 <div
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg"
-                  style={{
-                    background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
-                    boxShadow: `0 8px 20px -8px ${BLUE}`,
-                  }}
+                  className="flex items-start gap-5 rounded-xl border p-5"
+                  style={{ backgroundColor: NAVY_LIGHT, borderColor: BORDER }}
                 >
-                  <Icon className="h-6 w-6 text-white" strokeWidth={2} />
+                  <div
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg"
+                    style={{
+                      background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
+                      boxShadow: `0 8px 20px -8px ${BLUE}`,
+                    }}
+                  >
+                    <Icon className="h-6 w-6 text-white" strokeWidth={2} />
+                  </div>
+                  <div>
+                    <p className="font-semibold">{label}</p>
+                    <p className="mt-1 text-sm text-white/70">{desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold">{label}</p>
-                  <p className="mt-1 text-sm text-white/70">{desc}</p>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -405,31 +411,34 @@ function Index() {
       {/* Testimonials */}
       <section id="testimonials" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
         <div className="mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
-          <div className="text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
-              Testimonials
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">What Our Customers Say</h2>
-          </div>
+          <Reveal>
+            <div className="text-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+                Testimonials
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">What Our Customers Say</h2>
+            </div>
+          </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-2">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="relative overflow-hidden rounded-xl border p-8"
-                style={{
-                  background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
-                  borderColor: BORDER,
-                }}
-              >
-                <Quote className="h-10 w-10" style={{ color: BLUE_BRIGHT }} strokeWidth={1.5} />
-                <div className="mt-4 flex gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-5 w-5" fill={BLUE_BRIGHT} stroke={BLUE_BRIGHT} />
-                  ))}
+            {testimonials.map((t, i) => (
+              <Reveal key={t.name} delay={i * 120} direction={i % 2 === 0 ? "right" : "left"}>
+                <div
+                  className="relative h-full overflow-hidden rounded-xl border p-8"
+                  style={{
+                    background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
+                    borderColor: BORDER,
+                  }}
+                >
+                  <Quote className="h-10 w-10" style={{ color: BLUE_BRIGHT }} strokeWidth={1.5} />
+                  <div className="mt-4 flex gap-1">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Star key={j} className="h-5 w-5" fill={BLUE_BRIGHT} stroke={BLUE_BRIGHT} />
+                    ))}
+                  </div>
+                  <p className="mt-5 text-base leading-relaxed text-white/90 sm:text-lg">"{t.text}"</p>
+                  <p className="mt-6 text-sm font-semibold" style={{ color: BLUE_BRIGHT }}>— {t.name}</p>
                 </div>
-                <p className="mt-5 text-base leading-relaxed text-white/90 sm:text-lg">"{t.text}"</p>
-                <p className="mt-6 text-sm font-semibold" style={{ color: BLUE_BRIGHT }}>— {t.name}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -448,15 +457,18 @@ function Index() {
           />
         </div>
         <div className="relative mx-auto max-w-2xl px-6 py-16 sm:px-5 sm:py-24">
-          <div className="text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
-              Get in Touch
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Let's Get You Taken Care Of.</h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-white/75">
-              Tell us about your pest problem and we'll get back to you fast.
-            </p>
-          </div>
+          <Reveal>
+            <div className="text-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+                Get in Touch
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Let's Get You Taken Care Of.</h2>
+              <p className="mx-auto mt-4 max-w-xl text-base text-white/75">
+                Tell us about your pest problem and we'll get back to you fast.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
           <form
             onSubmit={onSubmit}
             className="mt-12 space-y-5 rounded-2xl border p-7 backdrop-blur-sm sm:p-9"
