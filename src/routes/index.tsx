@@ -35,9 +35,13 @@ const BLUE_BRIGHT = "#6b95ff";
 const BLUE_HOVER = "#3a6bef";
 const BORDER = "rgba(120,160,255,0.18)";
 
+function scrollToId(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 function scrollToContact(e: React.MouseEvent) {
   e.preventDefault();
-  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  scrollToId("contact");
 }
 
 const services = [
