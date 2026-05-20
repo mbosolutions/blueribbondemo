@@ -347,7 +347,14 @@ function Index() {
         className="relative scroll-mt-20 overflow-hidden"
         style={{ backgroundColor: SAND }}
       >
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
+        <div
+          className="pointer-events-none absolute -right-32 top-12 h-80 w-80 rounded-full opacity-30 blur-3xl sm:h-[26rem] sm:w-[26rem]"
+          style={{ backgroundColor: BLUE_BRIGHT }}
+        />
+        <div
+          className="pointer-events-none absolute -left-24 bottom-10 h-72 w-72 rounded-full opacity-25 blur-3xl sm:h-96 sm:w-96"
+          style={{ backgroundColor: "#a8c4a0" }}
+        >
           <Reveal direction="right">
             <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl shadow-xl md:max-w-none">
               <img
