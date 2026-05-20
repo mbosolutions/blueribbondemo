@@ -141,7 +141,7 @@ function Index() {
               style={{ backgroundColor: BLUE_BRIGHT }}
             />
             <h1
-              className="relative bg-clip-text text-4xl font-bold leading-[1.05] tracking-tight text-transparent drop-shadow-[0_2px_20px_rgba(74,123,255,0.35)] sm:text-6xl md:text-7xl"
+              className="relative bg-clip-text text-4xl font-bold leading-[1.05] tracking-tight text-transparent [-webkit-text-fill-color:transparent] [filter:drop-shadow(0_4px_6px_rgba(0,0,0,0.55))_drop-shadow(0_2px_20px_rgba(74,123,255,0.35))] sm:text-6xl md:text-7xl"
               style={{
                 backgroundImage: `linear-gradient(180deg, #ffffff 0%, #e8efff 45%, ${BLUE_BRIGHT} 100%)`,
               }}
