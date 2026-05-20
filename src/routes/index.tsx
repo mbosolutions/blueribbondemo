@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import lakeImg from "@/assets/lake.jpg";
 import logoImg from "@/assets/blue-ribbon-logo.png";
+import logoMobileImg from "@/assets/blue-ribbon-logo-mobile.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
