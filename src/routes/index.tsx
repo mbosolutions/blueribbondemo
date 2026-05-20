@@ -514,7 +514,7 @@ function Index() {
                     value={(form as any)[f.id]}
                     onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
                     className="w-full rounded-md border px-4 py-3 outline-none transition-colors focus:border-[color:var(--blue)]"
-                    style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY, ["--blue" as any]: BLUE_BRIGHT }}
+                    style={{ borderColor: BORDER_LIGHT, backgroundColor: "#ffffff", color: NAVY, ["--blue" as any]: BLUE_BRIGHT }}
                   />
                 </div>
               ))}
@@ -528,7 +528,7 @@ function Index() {
                   value={form.pest}
                   onChange={(e) => setForm({ ...form, pest: e.target.value })}
                   className="w-full rounded-md border px-4 py-3 outline-none"
-                  style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY }}
+                  style={{ borderColor: BORDER_LIGHT, backgroundColor: "#ffffff", color: NAVY }}
                 >
                   <option value="">Select a pest type</option>
                   {[
@@ -554,7 +554,7 @@ function Index() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full rounded-md border px-4 py-3 outline-none"
-                  style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY }}
+                  style={{ borderColor: BORDER_LIGHT, backgroundColor: "#ffffff", color: NAVY }}
                 />
               </div>
               <button
