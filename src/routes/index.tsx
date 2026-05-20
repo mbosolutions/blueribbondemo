@@ -20,7 +20,10 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import lakeImg from "@/assets/lake.jpg";
+import heroImg from "@/assets/hero-cabin.jpg";
+import technicianImg from "@/assets/technician.jpg";
+import leavesImg from "@/assets/leaves-bg.jpg";
+import contactLakeImg from "@/assets/contact-lake.jpg";
 import logoImg from "@/assets/blue-ribbon-logo.png";
 import logoMobileImg from "@/assets/blue-ribbon-logo-mobile.png";
 import { Reveal, useParallax } from "@/components/Reveal";
@@ -30,12 +33,15 @@ export const Route = createFileRoute("/")({
 });
 
 const NAVY = "#0a1730";
-const NAVY_LIGHT = "#11264a";
-const NAVY_LIGHTER = "#163057";
-const BLUE = "#4a7bff";
-const BLUE_BRIGHT = "#6b95ff";
-const BLUE_HOVER = "#3a6bef";
-const BORDER = "rgba(120,160,255,0.18)";
+const NAVY_INK = "#16243f";
+const BLUE = "#2f5fd6";
+const BLUE_BRIGHT = "#4a7bff";
+const BLUE_HOVER = "#1e4ec0";
+const CREAM = "#faf7f1";
+const CREAM_DEEP = "#f0ead e";
+const SAND = "#efe8d8";
+const BORDER_DARK = "rgba(120,160,255,0.18)";
+const BORDER_LIGHT = "rgba(22,36,63,0.10)";
 
 function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -88,16 +94,17 @@ function Index() {
 
   return (
     <div
-      className="min-h-screen text-white"
+      className="min-h-screen"
       style={{
-        backgroundColor: NAVY,
+        backgroundColor: CREAM,
+        color: NAVY_INK,
         fontFamily: '"Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif',
       }}
     >
       {/* Header */}
       <header
-        className="sticky top-0 z-50 border-b backdrop-blur-md"
-        style={{ backgroundColor: "rgba(10,23,48,0.85)", borderColor: BORDER }}
+        className="sticky top-0 z-50 border-b backdrop-blur-md text-white"
+        style={{ backgroundColor: "rgba(10,23,48,0.92)", borderColor: BORDER_DARK }}
       >
         {/* Mobile header */}
         <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:hidden">
@@ -124,7 +131,6 @@ function Index() {
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
             <img src={logoMobileImg} alt="Blue Ribbon Pest Control" className="h-9 w-auto" />
-
           </a>
           <div className="flex items-center gap-1">
             <button
@@ -182,7 +188,7 @@ function Index() {
         {menuOpen && (
           <div
             className="border-t md:hidden"
-            style={{ borderColor: BORDER, backgroundColor: "rgba(10,23,48,0.98)" }}
+            style={{ borderColor: BORDER_DARK, backgroundColor: "rgba(10,23,48,0.98)" }}
           >
             <nav className="mx-auto flex max-w-6xl flex-col px-4 py-2">
               {navItems.map((n) => (
@@ -204,66 +210,42 @@ function Index() {
         )}
       </header>
 
-
-
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        {/* Background image */}
+      <section className="relative overflow-hidden text-white">
         <div className="absolute inset-0">
-          <img ref={parallaxRef} src={lakeImg} alt="Adirondack lake at Eagle Bay, NY" className="h-[115%] w-full object-cover" />
+          <img
+            ref={parallaxRef}
+            src={heroImg}
+            alt="Sunlit Adirondack cabin among pine trees"
+            className="h-[115%] w-full object-cover"
+          />
           <div
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(180deg, rgba(10,23,48,0.65) 0%, rgba(10,23,48,0.78) 55%, ${NAVY} 100%)`,
+              background:
+                "linear-gradient(180deg, rgba(10,23,48,0.55) 0%, rgba(10,23,48,0.35) 40%, rgba(250,247,241,0.10) 80%, rgba(250,247,241,1) 100%)",
             }}
-          />
-          {/* Glow accents */}
-          <div
-            className="pointer-events-none absolute -top-32 left-1/4 h-96 w-96 rounded-full opacity-30 blur-3xl"
-            style={{ backgroundColor: BLUE }}
-          />
-          <div
-            className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full opacity-20 blur-3xl"
-            style={{ backgroundColor: BLUE_BRIGHT }}
           />
         </div>
 
         <div className="relative mx-auto max-w-5xl px-6 py-20 text-center sm:px-5 sm:py-32 md:py-40">
           <div
-            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-white/90 backdrop-blur-sm sm:mb-6 sm:px-4 sm:text-sm"
-            style={{ borderColor: BORDER, backgroundColor: "rgba(74,123,255,0.12)" }}
+            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-white backdrop-blur-md sm:mb-6 sm:px-4 sm:text-sm"
           >
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ backgroundColor: BLUE_BRIGHT }} />
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
             Serving the Adirondacks Since Day One
           </div>
-          <div className="relative">
-            <div
-              className="pointer-events-none absolute -left-10 -top-6 h-40 w-40 rounded-full opacity-40 blur-3xl sm:-left-16 sm:-top-10 sm:h-72 sm:w-72"
-              style={{ backgroundColor: BLUE }}
-            />
-            <div
-              className="pointer-events-none absolute -bottom-8 -right-6 h-40 w-40 rounded-full opacity-30 blur-3xl sm:-bottom-12 sm:-right-10 sm:h-72 sm:w-72"
-              style={{ backgroundColor: BLUE_BRIGHT }}
-            />
-            <h1
-              className="relative bg-clip-text text-[2.25rem] font-bold leading-[1.05] tracking-tight text-transparent [-webkit-text-fill-color:transparent] [filter:drop-shadow(0_4px_6px_rgba(0,0,0,0.55))_drop-shadow(0_2px_20px_rgba(74,123,255,0.35))] sm:text-6xl md:text-7xl"
-              style={{
-                backgroundImage: `linear-gradient(180deg, #ffffff 0%, #e8efff 45%, ${BLUE_BRIGHT} 100%)`,
-              }}
-            >
-              Eagle Bay's Trusted{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: `linear-gradient(135deg, ${BLUE_BRIGHT} 0%, #a8c0ff 50%, #ffffff 100%)`,
-                }}
-              >
-                Pest Control
-              </span>{" "}
-              Experts.
-            </h1>
-          </div>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/85 sm:mt-6 sm:text-lg md:text-xl">
+          <h1
+            className="text-[2.25rem] font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
+            style={{ textShadow: "0 4px 28px rgba(10,23,48,0.55), 0 2px 6px rgba(10,23,48,0.35)" }}
+          >
+            Eagle Bay's Trusted{" "}
+            <span style={{ color: "#e8efff" }}>Pest Control</span> Experts.
+          </h1>
+          <p
+            className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white sm:mt-6 sm:text-lg md:text-xl"
+            style={{ textShadow: "0 2px 14px rgba(10,23,48,0.6)" }}
+          >
             Fast, courteous, and dedicated to keeping your home pest-free. Proudly protecting families across the Adirondack region.
           </p>
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
@@ -280,8 +262,7 @@ function Index() {
             </a>
             <a
               href="tel:+13153572847"
-              className="inline-flex items-center justify-center gap-2 rounded-md border px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 sm:px-8 sm:py-4 sm:text-base"
-              style={{ borderColor: "rgba(255,255,255,0.25)" }}
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/40 bg-white/15 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/25 sm:px-8 sm:py-4 sm:text-base"
             >
               <Phone className="h-4 w-4" /> (315) 357-2847
             </a>
@@ -294,32 +275,32 @@ function Index() {
             ].map(({ label, icon: Icon }) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-medium text-white/90 backdrop-blur-sm sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
-                style={{ borderColor: BORDER, backgroundColor: "rgba(255,255,255,0.05)" }}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/15 px-3 py-1.5 text-[11px] font-medium text-white backdrop-blur-md sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
               >
-                <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5" style={{ color: BLUE_BRIGHT }} fill={Icon === Star ? BLUE_BRIGHT : "none"} />
+                <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" fill={Icon === Star ? "#fff" : "none"} />
                 {label}
               </span>
             ))}
           </div>
         </div>
-
       </section>
 
       {/* Services */}
-      <section id="services" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
-        <div
-          className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-          style={{ backgroundColor: BLUE }}
-        />
+      <section
+        id="services"
+        className="relative scroll-mt-20"
+        style={{ backgroundColor: CREAM }}
+      >
         <div className="relative mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
           <Reveal>
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE }}>
                 What We Do
               </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Our Services</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base text-white/70">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl" style={{ color: NAVY }}>
+                Our Services
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base" style={{ color: "rgba(22,36,63,0.7)" }}>
                 From buzzing nests to creeping rodents — we handle it all with care and precision.
               </p>
             </div>
@@ -328,27 +309,23 @@ function Index() {
             {services.map(({ icon: Icon, title, desc }, i) => (
               <Reveal key={title} delay={i * 80}>
                 <div
-                  className="group relative h-full overflow-hidden rounded-xl border p-7 transition-all hover:-translate-y-1"
+                  className="group relative h-full overflow-hidden rounded-xl border bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-xl"
                   style={{
-                    background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
-                    borderColor: BORDER,
+                    borderColor: BORDER_LIGHT,
+                    boxShadow: "0 4px 18px -10px rgba(22,36,63,0.18)",
                   }}
                 >
                   <div
-                    className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-30"
-                    style={{ backgroundColor: BLUE }}
-                  />
-                  <div
                     className="relative inline-flex h-12 w-12 items-center justify-center rounded-lg"
                     style={{
-                      background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
+                      background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
                       boxShadow: `0 8px 20px -8px ${BLUE}`,
                     }}
                   >
                     <Icon className="h-6 w-6 text-white" strokeWidth={2} />
                   </div>
-                  <h3 className="relative mt-5 text-lg font-semibold">{title}</h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-white/70">{desc}</p>
+                  <h3 className="relative mt-5 text-lg font-semibold" style={{ color: NAVY }}>{title}</h3>
+                  <p className="relative mt-2 text-sm leading-relaxed" style={{ color: "rgba(22,36,63,0.7)" }}>{desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -357,76 +334,96 @@ function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
+      <section
+        id="about"
+        className="relative scroll-mt-20 overflow-hidden"
+        style={{ backgroundColor: SAND }}
+      >
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:gap-14 sm:px-5 sm:py-24 md:grid-cols-2 md:items-center">
           <Reveal direction="right">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src={technicianImg}
+                alt="Blue Ribbon pest control technician treating a home exterior"
+                loading="lazy"
+                className="h-[420px] w-full object-cover sm:h-[520px]"
+              />
+            </div>
+          </Reveal>
+          <Reveal direction="left" delay={100}>
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE }}>
                 About Us
               </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Why Blue Ribbon?</h2>
-              <p className="mt-6 text-base leading-relaxed text-white/80 sm:text-lg">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl" style={{ color: NAVY }}>
+                Why Blue Ribbon?
+              </h2>
+              <p className="mt-6 text-base leading-relaxed sm:text-lg" style={{ color: "rgba(22,36,63,0.8)" }}>
                 Locally owned and operated in Eagle Bay, NY. We pride ourselves on fast response times, fair prices, and treating every home like our own. Our customers trust us because we show up on time, get the job done right, and never cut corners.
               </p>
-              <div className="mt-8 flex items-center gap-4">
-                <img src={logoImg} alt="Blue Ribbon Pest Control logo" className="h-20 w-auto" />
-                <div className="text-sm text-white/70">
-                  <p className="font-semibold text-white">A name homeowners trust.</p>
-                  <p>Built on craftsmanship and care.</p>
-                </div>
+              <div className="mt-8 grid gap-4 sm:grid-cols-1">
+                {[
+                  { icon: Award, label: "Licensed & Insured", desc: "Fully certified for your peace of mind." },
+                  { icon: MapPin, label: "Locally Owned", desc: "Your neighbors in the Adirondacks." },
+                  { icon: Leaf, label: "Eco-Friendly Options", desc: "Safe treatments for kids and pets." },
+                ].map(({ icon: Icon, label, desc }) => (
+                  <div
+                    key={label}
+                    className="flex items-start gap-4 rounded-xl border bg-white/70 p-4 backdrop-blur-sm"
+                    style={{ borderColor: BORDER_LIGHT }}
+                  >
+                    <div
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
+                      style={{
+                        background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
+                        boxShadow: `0 8px 20px -8px ${BLUE}`,
+                      }}
+                    >
+                      <Icon className="h-5 w-5 text-white" strokeWidth={2} />
+                    </div>
+                    <div>
+                      <p className="font-semibold" style={{ color: NAVY }}>{label}</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "rgba(22,36,63,0.7)" }}>{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </Reveal>
-          <div className="grid gap-5">
-            {[
-              { icon: Award, label: "Licensed & Insured", desc: "Fully certified for your peace of mind." },
-              { icon: MapPin, label: "Locally Owned", desc: "Your neighbors in the Adirondacks." },
-              { icon: Leaf, label: "Eco-Friendly Options", desc: "Safe treatments for kids and pets." },
-            ].map(({ icon: Icon, label, desc }, i) => (
-              <Reveal key={label} direction="left" delay={i * 100}>
-                <div
-                  className="flex items-start gap-5 rounded-xl border p-5"
-                  style={{ backgroundColor: NAVY_LIGHT, borderColor: BORDER }}
-                >
-                  <div
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg"
-                    style={{
-                      background: `linear-gradient(135deg, ${BLUE}, ${BLUE_HOVER})`,
-                      boxShadow: `0 8px 20px -8px ${BLUE}`,
-                    }}
-                  >
-                    <Icon className="h-6 w-6 text-white" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <p className="font-semibold">{label}</p>
-                    <p className="mt-1 text-sm text-white/70">{desc}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="relative border-t scroll-mt-20" style={{ borderColor: BORDER }}>
-        <div className="mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
+      <section
+        id="testimonials"
+        className="relative scroll-mt-20 overflow-hidden"
+      >
+        <div className="absolute inset-0">
+          <img src={leavesImg} alt="" aria-hidden className="h-full w-full object-cover" loading="lazy" />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(180deg, rgba(250,247,241,0.92), rgba(250,247,241,0.96))" }}
+          />
+        </div>
+        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:px-5 sm:py-24">
           <Reveal>
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE }}>
                 Testimonials
               </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">What Our Customers Say</h2>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl" style={{ color: NAVY }}>
+                What Our Customers Say
+              </h2>
             </div>
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={i * 120} direction={i % 2 === 0 ? "right" : "left"}>
                 <div
-                  className="relative h-full overflow-hidden rounded-xl border p-8"
+                  className="relative h-full overflow-hidden rounded-xl border bg-white p-8"
                   style={{
-                    background: `linear-gradient(160deg, ${NAVY_LIGHT}, ${NAVY})`,
-                    borderColor: BORDER,
+                    borderColor: BORDER_LIGHT,
+                    boxShadow: "0 10px 30px -16px rgba(22,36,63,0.25)",
                   }}
                 >
                   <Quote className="h-10 w-10" style={{ color: BLUE_BRIGHT }} strokeWidth={1.5} />
@@ -435,8 +432,8 @@ function Index() {
                       <Star key={j} className="h-5 w-5" fill={BLUE_BRIGHT} stroke={BLUE_BRIGHT} />
                     ))}
                   </div>
-                  <p className="mt-5 text-base leading-relaxed text-white/90 sm:text-lg">"{t.text}"</p>
-                  <p className="mt-6 text-sm font-semibold" style={{ color: BLUE_BRIGHT }}>— {t.name}</p>
+                  <p className="mt-5 text-base leading-relaxed sm:text-lg" style={{ color: "rgba(22,36,63,0.9)" }}>"{t.text}"</p>
+                  <p className="mt-6 text-sm font-semibold" style={{ color: BLUE }}>— {t.name}</p>
                 </div>
               </Reveal>
             ))}
@@ -447,114 +444,125 @@ function Index() {
       {/* Contact */}
       <section
         id="contact"
-        className="relative border-t scroll-mt-20"
-        style={{ borderColor: BORDER }}
+        className="relative scroll-mt-20 overflow-hidden text-white"
       >
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={contactLakeImg}
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
           <div
-            className="pointer-events-none absolute left-1/2 top-20 h-96 w-96 -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-            style={{ backgroundColor: BLUE }}
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(10,23,48,0.55) 0%, rgba(10,23,48,0.7) 100%)",
+            }}
           />
         </div>
         <div className="relative mx-auto max-w-2xl px-6 py-16 sm:px-5 sm:py-24">
           <Reveal>
             <div className="text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: BLUE_BRIGHT }}>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
                 Get in Touch
               </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Let's Get You Taken Care Of.</h2>
-              <p className="mx-auto mt-4 max-w-xl text-base text-white/75">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl" style={{ textShadow: "0 2px 18px rgba(10,23,48,0.5)" }}>
+                Let's Get You Taken Care Of.
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-base text-white/90">
                 Tell us about your pest problem and we'll get back to you fast.
               </p>
             </div>
           </Reveal>
           <Reveal delay={120}>
-          <form
-            onSubmit={onSubmit}
-            className="mt-12 space-y-5 rounded-2xl border p-7 backdrop-blur-sm sm:p-9"
-            style={{ borderColor: BORDER, backgroundColor: "rgba(17,38,74,0.6)" }}
-          >
-            {[
-              { id: "name", label: "Name", type: "text" },
-              { id: "phone", label: "Phone Number", type: "tel" },
-              { id: "email", label: "Email", type: "email" },
-            ].map((f) => (
-              <div key={f.id}>
-                <label htmlFor={f.id} className="mb-2 block text-sm font-medium text-white/85">
-                  {f.label}
+            <form
+              onSubmit={onSubmit}
+              className="mt-12 space-y-5 rounded-2xl border bg-white p-7 shadow-2xl sm:p-9"
+              style={{ borderColor: BORDER_LIGHT }}
+            >
+              {[
+                { id: "name", label: "Name", type: "text" },
+                { id: "phone", label: "Phone Number", type: "tel" },
+                { id: "email", label: "Email", type: "email" },
+              ].map((f) => (
+                <div key={f.id}>
+                  <label htmlFor={f.id} className="mb-2 block text-sm font-medium" style={{ color: NAVY }}>
+                    {f.label}
+                  </label>
+                  <input
+                    id={f.id}
+                    type={f.type}
+                    required
+                    value={(form as any)[f.id]}
+                    onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
+                    className="w-full rounded-md border px-4 py-3 outline-none transition-colors focus:border-[color:var(--blue)]"
+                    style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY, ["--blue" as any]: BLUE_BRIGHT }}
+                  />
+                </div>
+              ))}
+              <div>
+                <label htmlFor="pest" className="mb-2 block text-sm font-medium" style={{ color: NAVY }}>
+                  Pest Type
                 </label>
-                <input
-                  id={f.id}
-                  type={f.type}
+                <select
+                  id="pest"
                   required
-                  value={(form as any)[f.id]}
-                  onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
-                  className="w-full rounded-md border px-4 py-3 text-white outline-none transition-colors placeholder:text-white/40 focus:border-[color:var(--blue)]"
-                  style={{ borderColor: BORDER, backgroundColor: NAVY_LIGHTER, ["--blue" as any]: BLUE_BRIGHT }}
+                  value={form.pest}
+                  onChange={(e) => setForm({ ...form, pest: e.target.value })}
+                  className="w-full rounded-md border px-4 py-3 outline-none"
+                  style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY }}
+                >
+                  <option value="">Select a pest type</option>
+                  {[
+                    ["hornets-wasps", "Hornets / Wasps"],
+                    ["ants", "Ants"],
+                    ["rodents", "Rodents"],
+                    ["ticks-mosquitoes", "Ticks / Mosquitoes"],
+                    ["spiders", "Spiders"],
+                    ["other", "Other"],
+                  ].map(([v, l]) => (
+                    <option key={v} value={v}>{l}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="msg" className="mb-2 block text-sm font-medium" style={{ color: NAVY }}>
+                  Describe your issue
+                </label>
+                <textarea
+                  id="msg"
+                  rows={5}
+                  required
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className="w-full rounded-md border px-4 py-3 outline-none"
+                  style={{ borderColor: BORDER_LIGHT, backgroundColor: CREAM, color: NAVY }}
                 />
               </div>
-            ))}
-            <div>
-              <label htmlFor="pest" className="mb-2 block text-sm font-medium text-white/85">
-                Pest Type
-              </label>
-              <select
-                id="pest"
-                required
-                value={form.pest}
-                onChange={(e) => setForm({ ...form, pest: e.target.value })}
-                className="w-full rounded-md border px-4 py-3 text-white outline-none"
-                style={{ borderColor: BORDER, backgroundColor: NAVY_LIGHTER }}
+              <button
+                type="submit"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-4 text-base font-semibold text-white shadow-xl transition-all hover:scale-[1.01]"
+                style={{
+                  background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
+                  boxShadow: `0 12px 30px -10px ${BLUE}`,
+                }}
               >
-                <option value="" style={{ color: "#000" }}>Select a pest type</option>
-                {[
-                  ["hornets-wasps", "Hornets / Wasps"],
-                  ["ants", "Ants"],
-                  ["rodents", "Rodents"],
-                  ["ticks-mosquitoes", "Ticks / Mosquitoes"],
-                  ["spiders", "Spiders"],
-                  ["other", "Other"],
-                ].map(([v, l]) => (
-                  <option key={v} value={v} style={{ color: "#000" }}>{l}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="msg" className="mb-2 block text-sm font-medium text-white/85">
-                Describe your issue
-              </label>
-              <textarea
-                id="msg"
-                rows={5}
-                required
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full rounded-md border px-4 py-3 text-white outline-none placeholder:text-white/40"
-                style={{ borderColor: BORDER, backgroundColor: NAVY_LIGHTER }}
-              />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-4 text-base font-semibold text-white shadow-xl transition-all hover:scale-[1.01]"
-              style={{
-                background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
-                boxShadow: `0 12px 30px -10px ${BLUE}`,
-              }}
-            >
-              Send My Request <ArrowRight className="h-4 w-4" />
-            </button>
-            {submitted && (
-              <p className="text-center text-sm" style={{ color: BLUE_BRIGHT }}>
-                Thanks — we'll be in touch shortly.
-              </p>
-            )}
-          </form>
+                Send My Request <ArrowRight className="h-4 w-4" />
+              </button>
+              {submitted && (
+                <p className="text-center text-sm" style={{ color: BLUE }}>
+                  Thanks — we'll be in touch shortly.
+                </p>
+              )}
+            </form>
           </Reveal>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t" style={{ borderColor: BORDER, backgroundColor: NAVY }}>
+      <footer className="border-t text-white" style={{ borderColor: BORDER_DARK, backgroundColor: NAVY }}>
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 sm:px-5 md:flex-row md:items-start md:justify-between">
           <div className="flex items-start gap-4">
             <img src={logoImg} alt="Blue Ribbon Pest Control" className="h-14 w-auto" />
