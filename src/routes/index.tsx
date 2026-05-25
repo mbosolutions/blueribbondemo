@@ -85,11 +85,34 @@ function Index() {
     { label: "Contact", id: "contact" },
   ];
 
-  const onSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm({ name: "", phone: "", email: "", pest: "", message: "" });
-    setTimeout(() => setSubmitted(false), 5000);
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("https://osadamatthew.app.n8n.cloud/webhook/website-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          pest: form.pest,
+          message: form.message,
+        }),
+      });
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      setSubmitted(true);
+      setForm({ name: "", phone: "", email: "", pest: "", message: "" });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -559,17 +582,23 @@ function Index() {
               </div>
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-4 text-base font-semibold text-white shadow-xl transition-all hover:scale-[1.01]"
+                disabled={submitting}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-4 text-base font-semibold text-white shadow-xl transition-all hover:scale-[1.01] disabled:opacity-60"
                 style={{
                   background: `linear-gradient(135deg, ${BLUE_BRIGHT}, ${BLUE_HOVER})`,
                   boxShadow: `0 12px 30px -10px ${BLUE}`,
                 }}
               >
-                Send My Request <ArrowRight className="h-4 w-4" />
+                {submitting ? "Sending..." : "Send My Request"} <ArrowRight className="h-4 w-4" />
               </button>
               {submitted && (
                 <p className="text-center text-sm" style={{ color: BLUE }}>
                   Thanks — we'll be in touch shortly.
+                </p>
+              )}
+              {error && (
+                <p className="text-center text-sm text-red-600">
+                  {error}
                 </p>
               )}
             </form>
